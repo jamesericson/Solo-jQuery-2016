@@ -23,20 +23,20 @@ function init(){
 function clickedcolor() {
   var color = $(this).attr('data-color');
   addCube(color);
-  updateTotals(color);
 } // end clickedcolor
 
 function clickedRemove()  {
-  $(this).removeClass("color-cube");
-  var color = $(this).attr('class');
+  var color = $(this).attr('color');
+  $(this).hide();
   colorTotals[color]--;
   updateTotals(color);
 }// end clickedRemove
 
 function addCube(color) {
-  var htmlString = '<div class="'+ color +' color-cube"></div>';
+  var htmlString = '<div class="'+ color +' color-cube" color="'+ color +'"></div>';
   $('.container').append(htmlString);
   colorTotals[color]++;
+  updateTotals(color);
 }// end addCube
 
 function updateTotals(color) {
